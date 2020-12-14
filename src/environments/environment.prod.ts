@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  todoApiUrl: 'https://todo-api.davidmannes.de'
 };
