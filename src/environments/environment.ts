@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  todoApiUrl: 'https://todo-api.davidmannes.de'
+  todoApiUrl: 'http://localhost:5000'
 };
 
 /*
