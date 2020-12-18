@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { Task } from './task';
+import { Task, TaskWriteDto } from './task';
 import { environment } from 'src/environments/environment';
 
 
@@ -44,7 +44,7 @@ export class TaskService {
     );
   }
 
-  addTask(task: Task): Observable<Task> {
+  addTask(task: TaskWriteDto): Observable<Task> {
     return this.http.post<Task>(this.tasksUrl, task, this.httpOptions).pipe(
       catchError(this.handleError<Task>('addTask'))
     );

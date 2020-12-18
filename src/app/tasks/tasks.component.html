@@ -2,4 +2,9 @@
   <li *ngFor="let task of tasks">
       <app-task [task]="task"></app-task>
   </li>
+  <li>
+    <input type="text" [(ngModel)]="newTask.description" placeholder="Aufgabe eingeben">
+    <button (click)=(createNewTask())> Add </button>
+    <button (click)=(resetNewTask())> Cancel </button>
+  </li>
 </ul>
