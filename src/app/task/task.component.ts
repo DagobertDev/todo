@@ -17,4 +17,8 @@ export class TaskComponent implements OnInit {
   save(): void {
     this.taskService.updateTask(this.task).subscribe();
   }
+
+  delete(): void {
+    this.taskService.deleteTask(this.task).subscribe(this.task = null);
+  }
 }
