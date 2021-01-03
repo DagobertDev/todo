@@ -26,12 +26,17 @@ export class AuthenticationService {
     return this.userSubject.value;
   }
 
-  login(username: string, password: string) {
-    return this.http.post<AuthenticationResponse>(`${environment.todoApiUrl}/users/refresh-token`, { "email": username, password }, { withCredentials: true })
-      .pipe(map(user => {
-        this.userSubject.next(user);
+  register(email: string, password: string) {
+    return this.http.post<any>(`${environment.todoApiUrl}/users`, { email, password }, { withCredentials: true });
+  }
+
+  login(email: string, password: string) {
+    return this.http.post<AuthenticationResponse>(`${environment.todoApiUrl}/users/refresh-token`, { email, password }, { withCredentials: true })
+      .pipe(map(response => {
+        response.user.jwtToken = response.jwtToken;
+        this.userSubject.next(response.user);
         this.startRefreshTokenTimer();
-        return user;
+        return response;
       }));
   }
 
@@ -44,10 +49,11 @@ export class AuthenticationService {
 
   refreshToken() {
     return this.http.get<AuthenticationResponse>(`${environment.todoApiUrl}/users/access-token`, { withCredentials: true })
-      .pipe(map((user) => {
-        this.userSubject.next(user);
+      .pipe(map((response) => {
+        response.user.jwtToken = response.jwtToken;
+        this.userSubject.next(response.user);
         this.startRefreshTokenTimer();
-        return user;
+        return response;
       }));
   }
 
@@ -71,7 +77,6 @@ export class AuthenticationService {
 }
 
 interface AuthenticationResponse {
-  id: string,
-  username: string,
-  jwtToken: string,
+  user: User
+  jwtToken: string
 }

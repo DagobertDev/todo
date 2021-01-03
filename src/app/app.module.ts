@@ -12,16 +12,22 @@ import { appInitializer } from './helpers/app.initializer';
 import { AuthenticationService } from './services/authentication.service';
 import { JwtInterceptor } from './helpers/jwt.interceptor.service';
 import { ErrorInterceptor } from './helpers/error.interceptor.service';
+import { RegistrationComponent } from './registration/registration/registration.component';
+import { CommonModule } from '@angular/common';
+import { StartpageComponent } from './startpage/startpage/startpage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskComponent,
     TasksComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent,
+    StartpageComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
