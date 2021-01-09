@@ -1,22 +1,34 @@
-<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="email">Email</label>
-    <input type="email" formControlName="email">
-    <div *ngIf="submitted && form.email.errors">
-      <div *ngIf="form.email.errors.required">Email is required</div>
-      <div *ngIf="form.email.errors.email">Email is not valid</div>
+<div class="col-md-6 offset-md-3 mt-5">
+    <div class="card">
+        <h4 class="card-header"> Register </h4>
+        <div class="card-body">
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" formControlName="email" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && form.email.errors }">
+                    <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+                        <div *ngIf="form.email.errors.required">Email is required</div>
+                        <div *ngIf="form.email.errors.email">Email is not valid</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" formControlName="password" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && form.password.errors }">
+                    <div *ngIf="submitted && form.password.errors" class="invalid-feedback">
+                        <div *ngIf="form.password.errors.required">Password is required</div>
+                        <div *ngIf="form.password.errors.minlength">Password must be at least 8 characters long</div>
+                    </div>
+                    <small class="form-text text-muted">
+                        Your password must be at least 8 characters long.
+                    </small>
+                </div>
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Register
+                </button>
+            </form>
+        </div>
     </div>
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" formControlName="password">
-    <div *ngIf="submitted && form.password.errors">
-      <div *ngIf="form.password.errors.required">Password is required</div>
-      <div *ngIf="form.password.errors.minlength">Password must be at least 8 characters long</div>
-    </div>
-  </div>
-  <button [disabled]="loading">
-    <span *ngIf="loading">Loading</span>
-    Register
-  </button>
-</form>
+</div>

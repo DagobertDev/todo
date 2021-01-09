@@ -1,21 +1,32 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="username">Username</label>
-        <input type="text" formControlName="username">
-        <div *ngIf="submitted && form.username.errors">
-            <div *ngIf="form.username.errors.required">Username is required</div>
+<div class="col-md-6 offset-md-3 mt-5">
+    <div class="card">
+        <h4 class="card-header"> Login </h4>
+        <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" formControlName="email" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && form.email.errors }">
+                    <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+                        <div *ngIf="form.email.errors.required">Email is required</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" formControlName="password" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && form.password.errors }">
+                    <div *ngIf="submitted && form.password.errors" class="invalid-feedback">
+                        <div *ngIf="form.password.errors.required">Password is required</div>
+                    </div>
+                </div>
+                <div *ngIf="error" class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Login
+                </button>
+            </form>
         </div>
     </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" formControlName="password">
-        <div *ngIf="submitted && form.password.errors">
-            <div *ngIf="form.password.errors.required">Password is required</div>
-        </div>
-    </div>
-    <button [disabled]="loading">
-        <span *ngIf="loading">Loading</span>
-        Login
-    </button>
-    <div *ngIf="error">{{error}}</div>
-</form>
+</div>
