@@ -15,6 +15,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor.service';
 import { RegistrationComponent } from './registration/registration/registration.component';
 import { CommonModule } from '@angular/common';
 import { StartpageComponent } from './startpage/startpage/startpage.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,9 @@ import { StartpageComponent } from './startpage/startpage/startpage.component';
     TasksComponent,
     LoginComponent,
     RegistrationComponent,
-    StartpageComponent
-  ],
+    StartpageComponent,
+    LogoutComponent,
+   ],
   imports: [
     BrowserModule,
     CommonModule,

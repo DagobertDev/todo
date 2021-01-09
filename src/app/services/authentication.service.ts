@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -14,10 +13,7 @@ export class AuthenticationService {
   private userSubject: BehaviorSubject<User>;
   public user: Observable<User>;
 
-  constructor(
-    private router: Router,
-    private http: HttpClient
-  ) {
+  constructor(private http: HttpClient) {
     this.userSubject = new BehaviorSubject<User>(null);
     this.user = this.userSubject.asObservable();
   }
@@ -44,7 +40,6 @@ export class AuthenticationService {
     this.http.delete<any>(`${environment.todoApiUrl}/users/refresh-token`, { withCredentials: true }).subscribe();
     this.stopRefreshTokenTimer();
     this.userSubject.next(null);
-    this.router.navigate(['/']);
   }
 
   refreshToken() {

@@ -3,7 +3,7 @@
     <a *ngIf="!user" routerLink="/login">Login</a>
     <a *ngIf="!user" routerLink="/register">Register</a>
     <a *ngIf="user" routerLink="/tasks">Tasks</a>
-    <a *ngIf="user" (click)="logout()">Logout</a>
+    <a *ngIf="user" routerLink="/logout">Logout</a>
 </nav>
 
 <router-outlet></router-outlet>
