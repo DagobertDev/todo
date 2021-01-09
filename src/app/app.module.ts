@@ -7,14 +7,14 @@ import { TaskComponent } from './task/task.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './login/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { appInitializer } from './helpers/app.initializer';
 import { AuthenticationService } from './services/authentication.service';
 import { JwtInterceptor } from './helpers/jwt.interceptor.service';
 import { ErrorInterceptor } from './helpers/error.interceptor.service';
-import { RegistrationComponent } from './registration/registration/registration.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { CommonModule } from '@angular/common';
-import { StartpageComponent } from './startpage/startpage/startpage.component';
+import { StartpageComponent } from './startpage/startpage.component';
 import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
