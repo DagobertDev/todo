@@ -16,9 +16,10 @@ import { RegistrationComponent } from './registration/registration.component';
 import { CommonModule } from '@angular/common';
 import { StartpageComponent } from './startpage/startpage.component';
 import { LogoutComponent } from './logout/logout.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     TaskComponent,
     TasksComponent,
@@ -26,6 +27,7 @@ import { LogoutComponent } from './logout/logout.component';
     RegistrationComponent,
     StartpageComponent,
     LogoutComponent,
+    NavbarComponent
    ],
   imports: [
     BrowserModule,

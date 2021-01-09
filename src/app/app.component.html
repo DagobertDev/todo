@@ -1,9 +1,5 @@
-<nav>
-    <a routerLink="/">{{title}}</a>
-    <a *ngIf="!user" routerLink="/login">Login</a>
-    <a *ngIf="!user" routerLink="/register">Register</a>
-    <a *ngIf="user" routerLink="/tasks">Tasks</a>
-    <a *ngIf="user" routerLink="/logout">Logout</a>
-</nav>
+<app-navbar></app-navbar>
 
-<router-outlet></router-outlet>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

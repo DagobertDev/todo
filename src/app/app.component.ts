@@ -7,11 +7,4 @@ import { AuthenticationService } from './services/authentication.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'Todo';
-  user: User;
-
-  constructor(private authenticationService: AuthenticationService) {
-    this.authenticationService.user.subscribe(user => this.user = user);
-  }
-}
+export class AppComponent { }

@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/"> Todo </a>
+    <div class="collapse navbar-collapse">
+      <div class="navbar-nav">
+        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Home
+        </a>
+        <a class="nav-link" *ngIf="!user" routerLink="/login" routerLinkActive="active"> Login </a>
+        <a class="nav-link" *ngIf="!user" routerLink="/register" routerLinkActive="active"> Register </a>
+        <a class="nav-link" *ngIf="user" routerLink="/tasks" routerLinkActive="active"> Tasks </a>
+        <a class="nav-link" *ngIf="user" routerLink="/logout" routerLinkActive="active"> Logout </a>
+      </div>
+    </div>
+  </div>
+</nav>
